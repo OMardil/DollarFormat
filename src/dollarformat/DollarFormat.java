@@ -11,11 +11,67 @@ package dollarformat;
  */
 public class DollarFormat {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+
+      public static void main(String[] args) {
+        
+        writeln(100.00);
+        writeln(10.00);
+        writeln(1.00);
+        writeln(0.10);
+        writeln(0.01);
+        writeln(0.001);
+        writeln(0.00);
+        writeln(12.78);
+        
+        writeln(-100.00);
+        writeln(-10.00);
+        writeln(-1.00);
+        writeln(-0.10);
+        writeln(-0.01);
+        writeln(-0.001);
+        writeln(-0.00);
+        writeln(-12.78);        
+
+        
+        
     }
+    
+    
+    public static void write(double amount) {
+        
+        if (amount < 0) {
+            System.out.print("-");
+        }
+        
+        double amountPositive = Math.abs(amount);
+        writePositive(amountPositive);
+        
+    }
+    
+    public static void writePositive(double amount) {
+        
+        System.out.print("$");
+        
+        int allCents = (int)(Math.round( amount * 100 ));
+        int dollars  = allCents / 100;
+        System.out.print(dollars);
+        System.out.print(".");        
+        int cents    = allCents % 100;
+        
+        if (cents < 10) {
+            System.out.print(0);
+        }
+        
+        System.out.print(cents);
+        
+    }
+    
+    
+    public static void writeln(double amount) {
+        
+        write(amount);
+        System.out.println();
+    }
+    
     
 }
